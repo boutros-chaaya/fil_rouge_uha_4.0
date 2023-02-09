@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+body
+{
+  background-color: #282c34;
+  color: white;
+}
+
+header
+{
+  padding: 1%;
+  font-size: 1.6rem;
+}
+
+.titleHr{
+  width: 40%;
+}
