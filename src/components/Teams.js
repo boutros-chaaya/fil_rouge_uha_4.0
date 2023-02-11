@@ -3,13 +3,14 @@ import React from "react";
 function Teams(props) {
   return (
     <div>
-      {props.data.map((index) => {
+      {props.data.map((object) => {
         return (
-          <div className="teamBox">
-            <h3>{props.data[0].name}</h3>
-            <p>Location : {props.data[0].location}</p>
-            <p>Division : {props.data[0].division}</p>
-            <p>Creation : {props.data[0].creation}</p>
+          <div className="teamBox" style={{backgroundColor: object.primaryColor}}>
+            <h3>{object.name}</h3>
+            <p>Location : {object.location}</p>
+            <p>Division : {object.division}</p>
+            <p>Creation : {object.creation}</p>
+            {console.log(object.primaryColor)}
           </div>
         );
       })}
