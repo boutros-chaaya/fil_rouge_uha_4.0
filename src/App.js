@@ -2,21 +2,28 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Teams from "./components/Teams";
+import Players from "./components/Players";
 
 
 function App() {
-  const [data, setData] = useState([]);
+  const teamsUrl = "http://localhost:8000/teams"
+  
+
+  const [teamsData, setteamsData] = useState([]);
+  
 
   useEffect(() => {
-    fetch("http://localhost:8000/teams")
+    fetch(teamsUrl)
       .then((response) => response.json())
-      .then((data) => setData(data));
+      .then((teamsData) => setteamsData(teamsData));
+      
   }, []);
 
   return (
     <div className="App">
       <Header />
-      <Teams data={data} />
+      <Teams data={teamsData} />
+      
     </div>
   );
 }

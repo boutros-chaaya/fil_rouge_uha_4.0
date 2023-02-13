@@ -131,3 +131,62 @@ button:hover {
   opacity: 0.9;
   border: 1px solid;
 }
+
+/* Players box */
+
+.playersBox {
+  position: fixed;
+  margin: auto;
+  width: 70%;
+  height: 60%;
+  background-color: #0c2340;
+  left: 15%;
+  top: 20%;
+  border-radius: 20px;
+  border: 0.1px solid white;
+  max-height: 100%;
+  overflow-y: auto;
+  display: none;
+}
+
+.closeButton{
+  color: red;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  position: fixed;
+  top: 22%;
+  left: 81.5%;
+}
+
+.singlePlayerBox{
+  margin: auto;
+  border-radius: 20px;
+  border: 0.1px solid white;
+  width: 80%;
+  margin-top: 3%;
+  margin-bottom: 5%;
+  padding: .1%;
+}
+
+.playerName{
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.playerPosition {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.playerNumber{
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.playerHeight {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.playerWeight {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
