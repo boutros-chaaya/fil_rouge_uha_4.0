@@ -1,6 +1,7 @@
 import React from "react";
 import Players from "./Players";
 import { useState, useEffect } from "react";
+import DeleteItem from "./DeleteItem";
 
 function Teams(props) {
   const [playersData, setPlayersData] = useState([]);
@@ -19,7 +20,7 @@ function Teams(props) {
     let playersTab = playersData;
 
     for (let player of playersTab) {
-      if (player.team == teamId) {
+      if (player.team === teamId) {
         teamRoster.push(player);
         setPlayersData(teamRoster);
       }
@@ -56,16 +57,28 @@ function Teams(props) {
               <p className="teamLocationText">Location : {object.location}</p>
               <p className="teamDivisionText">Division : {object.division}</p>
               <p className="teamCreationText">Creation : {object.creation}</p>
-              <button
-                className="playersButton"
-                style={{ backgroundColor: object.secondaryColor }}
-                onClick={() => {
-                  openPlayersModal(object.id, object.secondaryColor);
-                }}
-              >
-                Players
-              </button>
+              <div className="actionButtons">
+                <button
+                  className="playersButton"
+                  style={{ backgroundColor: object.secondaryColor }}
+                  onClick={() => {
+                    openPlayersModal(object.id, object.secondaryColor);
+                  }}
+                >
+                  Players
+                </button>
+                <button
+                  className="deleteButton"
+                  style={{ backgroundColor: object.otherColor }}
+                  onClick={() => {
+                    openPlayersModal(object.id, object.secondaryColor);
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
+            <DeleteItem team={object} color={object.otherColor} />
           </div>
         );
       })}
