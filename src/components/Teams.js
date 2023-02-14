@@ -5,29 +5,26 @@ import { useState, useEffect } from "react";
 function Teams(props) {
   const [playersData, setPlayersData] = useState([]);
   const playersUrl = "http://localhost:8000/players";
-  const  [teamRoster, setTeamRoster] = useState(playersData) // list of the players in the team ref teamId
+  const [teamRoster, setTeamRoster] = useState(playersData); // list of the players in the team ref teamId
 
   fetch(playersUrl)
-  .then((response) => response.json())
-  .then((players) => {
-    setPlayersData(players)
-
-  });
+    .then((response) => response.json())
+    .then((players) => {
+      setPlayersData(players);
+    });
 
   const openPlayersModal = (teamId, teamColor) => {
     const playersModal = document.querySelector(".playersBox");
-    
 
-    let playersTab = playersData
+    let playersTab = playersData;
 
-    for(let player of playersTab){
-      if(player.team == teamId){
-        teamRoster.push(player)
-        setPlayersData(teamRoster)
+    for (let player of playersTab) {
+      if (player.team == teamId) {
+        teamRoster.push(player);
+        setPlayersData(teamRoster);
       }
     }
 
-    
     playersModal.style.backgroundColor = teamColor;
     playersModal.style.display = "block";
   };
@@ -35,11 +32,10 @@ function Teams(props) {
   const closePlayersModal = () => {
     const playersModal = document.querySelector(".playersBox");
 
-    setTeamRoster([])
+    setTeamRoster([]);
 
     playersModal.style.display = "none";
   };
-
 
   return (
     <div>
@@ -73,8 +69,8 @@ function Teams(props) {
           </div>
         );
       })}
-      
-      <Players data={teamRoster} closePlayersModal={closePlayersModal}/>
+
+      <Players data={teamRoster} closePlayersModal={closePlayersModal} />
     </div>
   );
 }
