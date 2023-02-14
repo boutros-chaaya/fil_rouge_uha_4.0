@@ -38,6 +38,20 @@ function Teams(props) {
     playersModal.style.display = "none";
   };
 
+  const deleteTeam = (team) => {
+    const teams = props.data;
+    const requestOptions = {
+      method: "DELETE",
+    };
+    fetch(`http://localhost:8000/teams/${team.id}`, requestOptions).then((response) =>{
+      if (response.ok) {
+        const idx = teams.indexOf(team)
+        teams.splice(idx, 1);
+        props.setData(teams);
+      }
+    })
+  };
+
   return (
     <div>
       {props.data.map((object) => {
@@ -71,7 +85,7 @@ function Teams(props) {
                   className="deleteButton"
                   style={{ backgroundColor: object.otherColor }}
                   onClick={() => {
-                    openPlayersModal(object.id, object.secondaryColor);
+                    deleteTeam(object);
                   }}
                 >
                   Delete

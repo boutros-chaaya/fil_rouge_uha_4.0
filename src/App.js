@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Teams data={teamsData} />
+      <Teams data={teamsData} setData={setteamsData}/>
       
     </div>
   );
